@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Список продуктов</title>
+</h:head>
+<h:body>
+	<h:dataTable value="#{productController.productList}" var="prod"
+		border="1">
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Наименование" />
+			</f:facet>
+			<h:outputText value="#{prod.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Коллории" />
+			</f:facet>
+			<h:outputText value="#{prod.colories}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Белки" />
+			</f:facet>
+			<h:outputText value="#{prod.proteins}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">
+				<h:outputText value="Жиры" />
+			</f:facet>
+			<h:outputText value="#{prod.fat}" />
+		</h:column>
+		<h:column>
+		<h:form>
+		<h:link outcome="productController.editProduct" value="Редактировать продукт" />
+		</h:form>
+		</h:column>
+	</h:dataTable>
+	<h:form>
+		<h:link outcome="newProduct.xhtml" value="Добавить новый продукт" />
+	</h:form>
+</h:body>
+</html>

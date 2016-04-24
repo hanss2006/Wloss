@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<title>Создать новый продукт</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Наименование : " />
+			<h:inputText value="#{productController.product.name}" />
+			<h:outputLabel value="Коллории :" />
+			<h:inputText value="#{productController.product.colories}" />
+			<h:outputLabel value="Белки : " />
+			<h:inputText value="#{productController.product.proteins}" />
+			<h:outputLabel value="Жиры : " />
+			<h:inputText value="#{productController.product.fat}" />
+
+
+			<!-- f:convertDateTime pattern="dd/mm/yyyy"/ -->
+		</h:panelGrid>
+		<h:commandButton value="Добавить продукт"
+			action="#{productController.addNewProduct}" />
+	</h:form>
+</h:body>
+</html>
