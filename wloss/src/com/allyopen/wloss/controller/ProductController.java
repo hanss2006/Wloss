@@ -59,5 +59,4 @@ public class ProductController implements Serializable {
 		productList = productBean.getProducts();
 		return "productList.xhtml";
 	}
-	// getters and setters omitted for brevity.
 }
