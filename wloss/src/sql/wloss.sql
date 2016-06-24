@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Июн 24 2016 г., 23:15
+-- Время создания: Июн 25 2016 г., 01:40
 -- Версия сервера: 5.5.44-MariaDB-log
 -- Версия PHP: 5.5.35
 
@@ -33,14 +33,15 @@ CREATE TABLE IF NOT EXISTS `product` (
   `name` varchar(255) DEFAULT NULL,
   `proteins` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=152 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=302 ;
 
 --
 -- Дамп данных таблицы `product`
 --
 
 INSERT INTO `product` (`id`, `colories`, `fat`, `name`, `proteins`) VALUES
-(151, 1, 3, 'test1', 2);
+(151, 1, 3, 'test1', 2),
+(301, 2, 4, '???????', 3);
 
 -- --------------------------------------------------------
 
@@ -62,6 +63,25 @@ CREATE TABLE IF NOT EXISTS `ration` (
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `roles`
+--
+
+CREATE TABLE IF NOT EXISTS `roles` (
+  `role_name` varchar(15) NOT NULL,
+  PRIMARY KEY (`role_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `roles`
+--
+
+INSERT INTO `roles` (`role_name`) VALUES
+('invitedguest'),
+('registereduser');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `SEQUENCE`
 --
 
@@ -76,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `SEQUENCE` (
 --
 
 INSERT INTO `SEQUENCE` (`SEQ_NAME`, `SEQ_COUNT`) VALUES
-('SEQ_GEN', '200');
+('SEQ_GEN', '350');
 
 -- --------------------------------------------------------
 
@@ -104,6 +124,26 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `login`, `name`, `password`, `birth_date`, `hight`, `weight`, `email`) VALUES
 (1, 'hanss', 'Pavel', '123', '1972-02-19', 175, 95, 'pavel.grudanov@gmail.com'),
 (2, 'viktor', 'Viktor', '123', '1999-03-15', 175, 75, 'victor.grudanov@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `user_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `user_roles` (
+  `user_name` varchar(15) NOT NULL,
+  `role_name` varchar(15) NOT NULL,
+  PRIMARY KEY (`user_name`,`role_name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `user_roles`
+--
+
+INSERT INTO `user_roles` (`user_name`, `role_name`) VALUES
+('hanss', 'registereduser'),
+('viktor', 'registereduser');
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

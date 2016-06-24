@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Realm
+    className="org.apache.catalina.realm.JDBCRealm"
+    driverName="org.gjt.mm.mysql.Driver"
+    debug="99"
+	connectionURL="jdbc:mysql://192.168.1.45:3306/wloss"
+	connectionName="wloss"
+	connectionPassword="wloss"
+	userTable="users"
+	userNameCol="name"
+	userCredCol="password"
+	userRoleTable="user_roles"
+	roleNameCol="role_name"
+/>
